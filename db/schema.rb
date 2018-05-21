@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_142334) do
+ActiveRecord::Schema.define(version: 2018_05_21_143141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "skills", force: :cascade do |t|
+  create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "skill_id"
     t.string "status"
@@ -23,7 +23,18 @@ ActiveRecord::Schema.define(version: 2018_05_21_142334) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["skill_id"], name: "index_skills_on_skill_id"
+    t.index ["skill_id"], name: "index_bookings_on_skill_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "description"
+    t.string "location"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
@@ -48,6 +59,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_142334) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "skills", "skills"
+  add_foreign_key "bookings", "skills"
+  add_foreign_key "bookings", "users"
   add_foreign_key "skills", "users"
 end
