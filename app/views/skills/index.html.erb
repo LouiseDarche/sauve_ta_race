@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-lg-3">
+      <h1>Learn to survive</h1>
+      <% @skills.each do |skill| %>
+        <%= link_to skill.name, skill_path(@skill) %>
+        <%= skill.description %>
+        <%= skill.location %>
+        <%= skill.price %>
+      <% end %>
+    </div>
+  </div>
+</div>
