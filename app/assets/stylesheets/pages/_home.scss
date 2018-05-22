@@ -1,26 +1,15 @@
 // Specific CSS for your home-page
-.body {
-  margin: 0;
-}
-
-.banner {
-  height: 1280px;
-  text-align: center;
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 h1 {
   font-weight: 900;
   text-align: center;
-  padding-top: 25px;
+  color: $light-gray;
 }
 
-.btn btn-danger {
+.btn-danger {
   padding-top: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
