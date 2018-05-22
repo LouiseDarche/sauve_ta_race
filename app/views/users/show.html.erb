@@ -1,16 +1,39 @@
 <div class="container">
   <div class="booking">
-    <h2>Hello <%= @user.name %>, here are your bookings!</h2>
-    <div class="row">
-    <% @user.bookings.each do |booking| %>
-      <div class="col-xs-12 col-md-4">
-        <p><%= link_to booking.skill.name, skill_path(booking.skill) %></p>
-            <p>Starting on : <%= booking.starting_date %></p>
-            <p>For : <%= booking.duration %></p>
-            <p>Total cost : <%= booking.skill.price %>€</p>
+    <div class="welcome">
+      <h3>Hello <%= @user.name %>, what are you up to today?</h3>
+      <div>
+        <%= link_to "Book a camp", skills_path, class: "btn btn-primary btn-lg in_page" %>
+        <%= link_to "Edit my profile", edit_user_path(current_user), class: "btn btn-primary btn-lg in_page" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+
+    <h3 id="title">My bookings</h3>
+
+    <div class="row">
+      <% @user.bookings.each do |booking| %>
+        <div class="col-xs-12 col-md-4">
+          <%= link_to skill_path(booking.skill) do %>
+            <div class="card">
+              <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= booking.skill.image_url %>);">
+                <div class="card-category"><%= booking.skill.name %></div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  <!-- <h2><strong> </strong> </h2> -->
+                  <p><i class="fa fa-map-marker-alt"></i> <%= booking.skill.location %></p>
+                  <p id="price"> Total cost: <%= booking.skill.price %>€</p>
+                  <p>Starting on : <%= booking.starting_date %></p>
+                  <p>For : <%= booking.duration %> days</p>
+                </div>
+                <img class="card-user" src="https://i.pinimg.com/736x/89/49/8e/89498e10092d7b57c0ebc11a5b535cb2--twitter-cats.jpg">
+                <!-- <img class="card-user" src=<%#= booking.skill.user.image_url %>> -->
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
   </div>
 </div>

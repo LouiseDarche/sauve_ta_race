@@ -1,0 +1,26 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.booking h3 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.card-description p {
+  font-size: 13px !important;
+}
+
+.image {
+  position: absolute;
+}
+
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

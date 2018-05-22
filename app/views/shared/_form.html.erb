@@ -1,0 +1,8 @@
+<%= simple_form_for (@user) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :specie %>
+  <%= f.input :status, collection: ['trainer', 'trainee'] %>
+  <%= f.input :image_url %>
+  <%= f.submit %>
+<% end %>
