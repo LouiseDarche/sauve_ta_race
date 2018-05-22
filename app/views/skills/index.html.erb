@@ -3,17 +3,21 @@
   <div class="row">
     <% @skills.each do |skill| %>
       <div class="col-xs-12 col-md-4 col-lg-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category"></div>
-          <div class="card-description">
-            <h2><%= skill.name %></h2>
-            <p><%= skill.description %></p>
-            <p><%= skill.location %></p>
-            <p><%= skill.price %></p>
+        <%= link_to skill_path(skill) do %>
+          <div class="card">
+            <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i.pinimg.com/originals/4d/ed/ae/4dedaefb30f9f66de256228ff8911ad0.jpg');">
+              <div class="card-category"></div>
+            </div>
+            <div class="card-body">
+              <div class="card-description">
+                <h2><%= skill.name %></h2>
+                <p><%= skill.location %></p>
+                <p> Price per day: <%= skill.price %>€</p>
+              </div>
+              <img class="card-user" src="https://gastoniagrizzlies.com/wp-content/uploads/2017/02/Bear-With-Funny-Face-Expression.jpg">
+            </div>
           </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <a class="card-link" href="#" ></a>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
