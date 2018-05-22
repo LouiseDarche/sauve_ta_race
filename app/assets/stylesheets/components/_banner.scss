@@ -1,0 +1,16 @@
+/* -------------------------------------
+ * Your CSS code for banners
+* ------------------------------------- */
+
+.body {
+  margin: 0;
+}
+
+.banner {
+  height: 310px;
+  text-align: center;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
