@@ -26,7 +26,6 @@
   padding-right: 10px;
 }
 .card-user {
-  bottom: 10px;
   width: 40px;
   border-radius: 50%;
 }
@@ -50,6 +49,10 @@
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    color: black;
+    padding: 0px 0px;
+    text-align: left;
+
   }
 
   p {

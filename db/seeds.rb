@@ -25,25 +25,66 @@ puts "#{User.all}"
 puts "Creating 6 skills"
 
 running = Skill.new(
-  name: "Running bootcamp with a leopard"),
+  name: "Running bootcamp with a leopard",
   description: "Learn to run with a leopard, you will never be caught by anyone anymore!",
   location: "Serengeti savanna",
   price: "250",
-  image_url
-  user:
+  image_url: "https://hc8fm03jtw-flywheel.netdna-ssl.com/wp-content/uploads/2016/06/calendar1-600x600_c.jpg",
+  user: User.all.sample
+  )
 running.save!
 
+hiding = Skill.new(
+  name: "Hiding bootcamp with a cat",
+  description: "Learn to hid with a cat, you will never be caught by anyone anymore!",
+  location: "Tokyo, Japan",
+  price: "130",
+  image_url: "http://www.holidogtimes.com/it/wp-content/uploads/sites/3/2016/05/cat-hide-seek-13.jpg?2e4e73",
+  user: User.all.sample
+  )
+hiding.save!
+
+fishing = Skill.new(
+  name: "Fishing bootcamp with a bear",
+  description: "Learn to fish with a bear, you will never starve anymore!",
+  location: "Montreal, Canada",
+  price: "200",
+  image_url: "https://i.pinimg.com/originals/89/20/83/89208300d0f3be73ee565f6429d13ed2.jpg",
+  user: User.all.sample
+  )
+fishing.save!
+
+swimming = Skill.new(
+  name: "Swimming bootcamp with a swordfish",
+  description: "Learn to swim with a swordfish, you will never die anymore!",
+  location: "Marseille, France",
+  price: "100",
+  image_url: "https://teamseafoods.files.wordpress.com/2015/11/swordfish-underwater.jpg",
+  user: User.all.sample
+  )
+swimming.save!
+
+begging = Skill.new(
+  name: "Socialise bootcamp with a dog",
+  description: "Learn to socialise with a dog, you will never be alone anymore!",
+  location: "London, UK",
+  price: "150",
+  image_url: "https://steemitimages.com/0x0/https://s-media-cache-ak0.pinimg.com/564x/74/88/22/7488228009d153e94a00427f674d54bb.jpg",
+  user: User.all.sample
+  )
+begging.save!
+
+surfing = Skill.new(
+  name: "Surfing bootcamp with a goat",
+  description: "Learn to surf with a goat, you will never be a looser anymore!",
+  location: "Bali, Indonesia",
+  price: "300",
+  image_url: "https://cdn.modernfarmer.com/wp-content/uploads/2016/08/goatee-surfing.jpg",
+  user: User.all.sample
+  )
+surfing.save!
 
 
-10.times do
-  skill = Skill.new(
-    name: Faker::Company.name,
-    description: Faker::StarWars.quote,
-    location: Faker::Address.city,
-    price: Faker::Commerce.price,
-    user: User.all.sample
-    )
-  skill.save!
-end
+
 
 puts "Finished!"
