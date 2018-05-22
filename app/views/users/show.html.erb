@@ -1,6 +1,16 @@
 <div class="container">
   <div class="booking">
-    <h2>My bookings</h2>
+    <h2>Hello <%= @user.name %>, here are your bookings!</h2>
+    <div class="row">
+    <% @user.bookings.each do |booking| %>
+      <div class="col-xs-12 col-md-4">
+        <p><%= link_to booking.skill.name, skill_path(booking.skill) %></p>
+            <p>Starting on : <%= booking.starting_date %></p>
+            <p>For : <%= booking.duration %></p>
+            <p>Total cost : <%= booking.skill.price %>€</p>
+      </div>
+    <% end %>
+  </div>
 
   </div>
 </div>
