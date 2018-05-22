@@ -3,10 +3,10 @@
     <div class="col-xs-4 col-xs-offset-3">
       <%= simple_form_for [@skill, @booking] do |f|%>
         <%= f.label :starting_date %>
-        <%= f.date :starting_date %>
-        <%= f.input :duration, collection: 1..15 %>
-        <!-- compute the duration price -->
-        <% stay_price = (@skill.price * @booking.duration)%>
+        <%= f.input :starting_date %>
+        <%= f.input :duration,  collection: 1..15 %>
+            <!-- compute the duration price -->
+        <%# stay_price = (@skill.price * @duration)%>
         <%= f.label :stay_price %>
         <%= f.button :submit %>
       <% end %>
