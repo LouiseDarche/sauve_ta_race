@@ -22,7 +22,18 @@ puts "Creating 5 users"
 end
 puts "#{User.all}"
 
-puts "Creating 10 skills"
+puts "Creating 6 skills"
+
+running = Skill.new(
+  name: "Running bootcamp with a leopard"),
+  description: "Learn to run with a leopard, you will never be caught by anyone anymore!",
+  location: "Serengeti savanna",
+  price: "250",
+  image_url
+  user:
+running.save!
+
+
 
 10.times do
   skill = Skill.new(
