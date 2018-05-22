@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My bookings", user_bookings_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My bookings", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Book a camp", skills_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
