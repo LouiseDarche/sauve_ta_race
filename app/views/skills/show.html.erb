@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="skill">
+    <h2><%= @skill.name %></h2>
+    <p><%= @skill.description %></p>
+    <p><%= @skill.price %>€</p>
+    <p><%= @skill.location %></p>
+    <%= link_to "Book", new_skill_booking_path(@skill) %>
+    <%= link_to "Back to list", skills_path %>
+  </div>
+</div>

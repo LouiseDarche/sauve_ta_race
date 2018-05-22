@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for (@skill) do |f| %>
+    <%#= f.label :name %>
+    <%= f.input :name %>
+    <%#= f.label :description %>
+    <%= f.input :description %>
+    <%#= f.label :location %>
+    <%= f.input :location %>
+    <%#= f.label :price %>
+    <%= f.input :price %>
+    <%= f.submit "Create a skill", class: "btn btn-primary" %>
+  <% end %>
+</div>
