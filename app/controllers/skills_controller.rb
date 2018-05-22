@@ -7,6 +7,7 @@ class SkillsController < ApplicationController
 
   def show
     @skill = Skill.find(params[:id])
+    authorize(@skill)
   end
 
   def new
