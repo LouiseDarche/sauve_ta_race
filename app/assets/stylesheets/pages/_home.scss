@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+h1 {
+  font-weight: 900;
+  text-align: center;
+  color: $light-gray;
+}
+
+.btn-danger {
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
