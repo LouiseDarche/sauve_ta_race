@@ -5,4 +5,12 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    return true
+  end
+
+  def edit?
+    update?
+  end
+
 end
