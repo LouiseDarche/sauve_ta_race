@@ -1,22 +1,43 @@
 // Specific CSS for your home-page
-h1 {
+.banner {
+  h1 {
   font-size: 60px;
   font-weight: 900;
   text-align: center;
   color: $light-gray;
+  }
+
+  h2 {
+    font-family: 45px;
+    font-weight: 400;
+    text-align: center;
+    color: $light-gray;
+    padding: 15px;
+  }
+  .col-xs-12 {
+    top: 90px;
+  }
 }
 
 h2 {
   font-family: 45px;
   font-weight: 400;
   text-align: center;
-  color: $light-gray;
+  color: $gray;
   padding: 15px;
+
 }
 
 .btn-danger {
   align-items: center;
   justify-content: center;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
