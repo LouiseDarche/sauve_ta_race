@@ -2,7 +2,6 @@
   <h1>Learn to survive</h1>
   <div class="row">
     <% @skills.each do |skill| %>
-<<<<<<< HEAD
       <div class="col-xs-12 col-md-4 col-lg-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
           <div class="card-category"></div>
@@ -15,12 +14,6 @@
           <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
           <a class="card-link" href="#" ></a>
         </div>
-=======
-      <div class="col-xs-12 col-sm-4">
-        <p><%= link_to skill.name, skill_path(skill) %></p>
-        <p><%= skill.location %></p>
-        <p><%= skill.price %>€</p>
->>>>>>> master
       </div>
     <% end %>
   </div>
