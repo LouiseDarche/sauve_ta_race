@@ -6,7 +6,6 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   # end
   def new
     @skill = Skill.find(params[:skill_id])
-    raise
     @booking = Booking.new
   end
 
