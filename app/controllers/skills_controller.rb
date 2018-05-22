@@ -3,7 +3,6 @@ class SkillsController < ApplicationController
 
   def index
     @skills = policy_scope(Skill)
-
   end
 
 # elsa
