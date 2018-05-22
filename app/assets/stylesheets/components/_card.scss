@@ -1,5 +1,5 @@
 .card {
-  height: 200px;
+  height: 300px;
   color: black;
   margin-bottom: 30px;
   box-shadow: 1px 1px 2px #B3B3B3;
@@ -47,19 +47,29 @@
   h2 {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   p {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: lighter;
     margin-bottom: 0px;
   }
+
+
 
   &:hover {
     text-decoration: none;
   }
 }
+
+#price {
+    color: #5BA09B;
+    padding-left: 10px;
+  }
 
 a:hover {
   text-decoration: none;
