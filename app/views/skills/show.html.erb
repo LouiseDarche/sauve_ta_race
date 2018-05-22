@@ -10,22 +10,32 @@
 <div class="container">
 
   <div class="skill">
-    <div heading>
-      <h2>Description of the camp </h2>
-      <p>Offered by <%= @skill.user.name %></p>
-    </div>
-
-      <div>
-      <span><%= @skill.price %>€</span>
-        <p><%= @skill.description %></p>
-        <p>Location : <%= @skill.location %></p>
+    <div class="camp">
+      <div class="heading">
+        <h2>Description of the camp </h2>
       </div>
 
-    <div class="links">
+      <div id="price">
+        <%= @skill.price %>€
+      </div>
 
-      <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary btn-lg in_page" %>
+      <div class="description">
+        <p><%= @skill.description %></p>
+        <p id="location">Location : <%= @skill.location %></p>
+      </div>
+    </div>
 
-      <%= link_to "Back to list", skills_path %>
+
+    <div class="left-part">
+      <div class="trainer">
+        <%= image_tag 'logo_trainer.png', class: "avatar" %>
+        <p>Offered by <%= @skill.user.name %></p>
+      </div>
+      <div class="links">
+        <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary btn-lg in_page" %>
+
+        <%#= link_to "Back to selection", skills_path, id: "home-link" %>
+      </div>
     </div>
   </div>
 
