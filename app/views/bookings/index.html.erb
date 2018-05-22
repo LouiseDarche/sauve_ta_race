@@ -1,3 +1,14 @@
 <div class="container">
-  <h1>Hello</h1>
+  <h1>All my bookings</h1>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-xs-12 col-md-4">
+        <p><%= link_to booking.skill.name, skill_path(booking.skill) %></p>
+            <p>Starting on : <%= booking.starting_date %></p>
+            <p>For : <%= booking.duration %></p>
+            <p>Total cost : <%= booking.skill.price %>€</p>
+      </div>
+    <% end %>
+  </div>
+
 </div>
