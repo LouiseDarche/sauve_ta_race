@@ -1,7 +1,8 @@
 class SkillsController < ApplicationController
 
   def index
-    @skills = Skill.all
+    @skills = policy_scope(Skill)
+
   end
 
   def show
