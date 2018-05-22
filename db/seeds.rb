@@ -12,7 +12,7 @@ puts "Creating 5 users"
 5.times do
   user = User.new(
     email: Faker::Internet.email,
-    password: Faker::Bank.swift_bic,
+    password: "password",
     name: Faker::HarryPotter.character,
     location: Faker::HarryPotter.location,
     status: ["trainee", "trainer"].sample,
