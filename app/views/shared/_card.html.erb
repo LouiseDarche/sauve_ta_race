@@ -9,7 +9,6 @@
         </div>
       <% end %>
       <div class="card-body">
-        <div class="delete-card"><%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, skill_path(skill), method: :delete %></div>
         <div class="card-description align-left">
           <h2><strong> <%= skill.name %></strong></h2>
           <p><i class="fa fa-map-marker-alt"></i> <%= skill.location %></p>

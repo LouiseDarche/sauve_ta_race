@@ -22,6 +22,8 @@ h2 {
   font-weight: 400;
   text-align: center;
   color: $gray;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .btn-danger {
@@ -39,4 +41,10 @@ h2 {
     padding: 35px;
     margin-bottom: 30px;
   }
+}
+
+.home-button {
+  text-align: center;
+    padding: 35px;
+    margin-bottom: 30px;
 }
