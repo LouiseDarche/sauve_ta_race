@@ -3,11 +3,14 @@
     <div class="col-xs-4 col-xs-offset-3">
       <%= simple_form_for [@skill, @booking] do |f|%>
         <%= f.input :starting_date %>
-        <%= f.input :duration,  collection: 1..15 %>
+        <%#= f.input :duration,  collection: 1..15 %>
             <!-- compute the duration price -->
         <%# stay_price = (@skill.price * @duration)%>
         <p>Total price : <%= @skill.price %>€</p>
-        <%= f.button :submit %> <%= link_to "Cancel", skills_path %>
+        <div>
+          <%= f.button :submit, class: "btn btn-primary btn-lg in_page" %>
+          <%#= link_to "Cancel", skills_path, class: "btn btn-danger btn-lg in_page" %>
+        </div>
       <% end %>
     </div>
   </div>

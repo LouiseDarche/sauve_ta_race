@@ -10,13 +10,12 @@ class SkillsController < ApplicationController
     @skill = Skill.find(params[:id])
 
     authorize(@skill)
-
     @markers =
-      {
-        lat: @skill.latitude,
-        lng: @skill.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
+      [{
+              lat: @skill.latitude,
+              lng: @skill.longitude#,
+              # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+            }]
   end
 
   def new
