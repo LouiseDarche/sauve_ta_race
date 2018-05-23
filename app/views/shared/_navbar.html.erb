@@ -46,8 +46,10 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "My bookings", user_path(current_user) %>
-          </li>
+        <% if user_signed_in? %>
+          <li><%= link_to "My bookings", user_path(current_user) %>
+            </li>
+        <% end %>
         <li><%= link_to "Book a camp", skills_path %></li>
         <li><a href="#">Other one</a></li>
       </ul>
