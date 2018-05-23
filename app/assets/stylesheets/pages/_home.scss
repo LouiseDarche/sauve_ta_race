@@ -12,11 +12,9 @@
     font-weight: 400;
     text-align: center;
     color: $light-gray;
-    padding: 15px;
+    padding-top: 30px;
+    padding-bottom: 50px;
   }
-  // .col-xs-12 {
-  //   top: 90px;
-  // }
 }
 
 h2 {
@@ -24,8 +22,6 @@ h2 {
   font-weight: 400;
   text-align: center;
   color: $gray;
-  padding: 15px;
-
 }
 
 .btn-danger {
@@ -35,9 +31,12 @@ h2 {
   margin-bottom: 35px;
 }
 
-// .container {
-//   // display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-// }
+.wrapper-transparent {
+  padding: 10px;
+  margin-bottom: 35px;
+  .wrapper-button {
+    text-align: center;
+    padding: 35px;
+    margin-bottom: 30px;
+  }
+}

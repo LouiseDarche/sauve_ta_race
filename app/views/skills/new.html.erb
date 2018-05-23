@@ -1,14 +1,26 @@
-<div class="container">
-  <%= simple_form_for (@skill) do |f| %>
-    <%#= f.label :name %>
-    <%= f.input :name %>
-    <%#= f.label :description %>
-    <%= f.input :description %>
-    <%#= f.label :location %>
-    <%= f.input :location %>
-    <%#= f.label :price %>
-    <%= f.input :price %>
-    <%= f.input :image_url %>
-    <%= f.submit "Create a skill", class: "btn btn-primary" %>
-  <% end %>
+<div class="wrapper-image">
+  <div class="container">
+    <div class="row" style="padding-top: 30px;">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= simple_form_for (@skill) do |f| %>
+          <div class="form-group">
+
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :location %>
+            <%= f.input :price %>
+            <%= f.input :image_url %>
+          </div>
+          <div class="form-btn">
+            <%= f.submit "Create a skill", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+
+
+  </div>
 </div>
+
+

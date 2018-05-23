@@ -1,8 +1,24 @@
-<%= simple_form_for (@user) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :specie %>
-  <%= f.input :status, collection: ['trainer', 'trainee'] %>
-  <%= f.input :image_url %>
-  <%= f.submit %>
-<% end %>
+
+  <div class="back-image">
+    <div class="row" style="padding-top: 30px;">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= simple_form_for (@user) do |f| %>
+          <div class="form-group">
+
+            <%= f.input :name %>
+            <%= f.input :location %>
+            <%= f.input :specie %>
+            <%= f.input :status, collection: ['trainer', 'trainee'] %>
+            <%= f.input :image_url %>
+          </div>
+          <div class="form-btn">
+            <%= f.submit "Update my profile", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+
