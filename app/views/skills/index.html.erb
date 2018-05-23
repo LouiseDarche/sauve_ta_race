@@ -1,4 +1,8 @@
 <div class="container">
   <h1>Learn to survive</h1>
-  <%= render "shared/card" %>
+  <div class="row">
+    <% @skills.each do |skill| %>
+      <%= render "shared/card", skill: skill%>
+    <% end %>
+  </div>
 </div>
