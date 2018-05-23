@@ -1,6 +1,6 @@
 class Skill < ApplicationRecord
   belongs_to :user
-  mount_uploader :image_url, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 
 
   geocoded_by :location

@@ -9,8 +9,8 @@
             <%= f.input :location %>
             <%= f.input :specie %>
             <%= f.input :status, collection: ['trainer', 'trainee'] %>
-            <%= f.input :image_url %>
-            <%= f.input :image_url_cache, as: :hidden %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
           </div>
           <div class="form-btn">
             <%= f.submit "Update my profile", class: "btn btn-primary" %>

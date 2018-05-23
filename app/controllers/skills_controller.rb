@@ -39,13 +39,17 @@ class SkillsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @skill = Skill.find(params[:id])
+    @skill.destroy
+    redirect_to skills_path
+    authorize(@skill)
   end
 
   private
 
   def skill_params
-    params.require(:skill).permit(:user, :name, :description, :location, :price, :image_url)
+    params.require(:skill).permit(:user, :name, :description, :location, :price, :photo)
   end
 
 end
