@@ -15,20 +15,24 @@
         <div class="col-xs-12 col-md-4">
           <%= link_to skill_path(booking.skill) do %>
             <div class="card">
-              <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.skill.photo %>');">
-                <div class="card-category"><%= booking.skill.name %></div>
-              </div>
+              <% if booking.skill.photo.nil? %>
+                <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'logo.png' %>');">
+                </div>
+              <% else %>
+                <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>');">
+                </div>
+              <% end %>
               <div class="card-body">
-                <div class="card-description">
-                  <!-- <h2><strong> </strong> </h2> -->
+                <div class="card-description align-left">
+                  <h2><strong> <%= booking.skill.name %></strong> </h2>
                   <p><i class="fa fa-map-marker-alt"></i> <%= booking.skill.location %></p>
-                  <p id="price"> Total cost: <%= booking.skill.price %>€</p>
-                  <p>Starting on : <%= booking.starting_date %></p>
-                  <p>For : <%= booking.duration %> days</p>
+                  <p id="price"> Price: <%= booking.skill.price %>€</p>
                 </div>
                 <img class="card-user" src="https://i.pinimg.com/736x/89/49/8e/89498e10092d7b57c0ebc11a5b535cb2--twitter-cats.jpg">
-                <!-- <img class="card-user" src=<%#= booking.skill.user.image_url %>> -->
               </div>
+            </div>
+            <div>
+              <p id="start-date-center">Starting on : <%= booking.starting_date %></p>
             </div>
           <% end %>
         </div>
