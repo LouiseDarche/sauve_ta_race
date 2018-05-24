@@ -9,17 +9,23 @@
             <%= f.input :location %>
             <%= f.input :specie %>
             <%= f.input :status, collection: ['trainer', 'trainee'] %>
-            <%= f.input :photo %>
-            <%= f.input :photo_cache, as: :hidden %>
+            <label class="btn btn-primary btn-lg in_page" id='upload-btn'>
+              Add a file!
+              <span style="display:none;">
+                <%= f.input :photo, required: true, multiple: true, name: 'photo' %>
+              </span>
+              <%= f.input :photo_cache, as: :hidden %>
+            </label>
           </div>
           <div class="form-btn">
             <%= f.submit "Update my profile", class: "btn btn-primary btn-lg in_page" %>
+            <%= link_to "Back to profile", user_path(@user), class: "secondary-link" %>
           </div>
         <% end %>
 
       </div>
     </div>
-
+  <%= javascript_pack_tag 'uploadbtn' %>
   </div>
 
 

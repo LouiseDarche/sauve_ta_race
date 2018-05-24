@@ -16,7 +16,8 @@ puts "Creating 5 users"
     name: Faker::HarryPotter.character,
     location: Faker::HarryPotter.location,
     status: ["trainee", "trainer"].sample,
-    specie: Faker::HarryPotter.house
+    specie: Faker::HarryPotter.house,
+    photo: "https://source.unsplash.com/random"
     )
   user.save!
 end

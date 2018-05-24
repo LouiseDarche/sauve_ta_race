@@ -6,7 +6,7 @@
 }
 
 .booking h3 {
-  text-align: center;
+  text-align: left;
   margin-top: 50px;
   margin-bottom: 30px;
 }
@@ -14,4 +14,10 @@
 #start-date-center {
   text-align: center;
   font-size: 15px;
+}
+
+.information-frame {
+  background-color: white;
+  border: 1px solid rgba(0,0,0,0.2);
+  margin: 10px 0px;
 }
