@@ -1,5 +1,16 @@
 <div class="container">
-  <h1 style="padding-bottom: 20px;">Learn to survive</h1>
+  <div class="col-xs-12">
+    <h1 style="padding-bottom: 20px;">Learn to survive</h1>
+    <div class="searchbar">
+      <%= form_tag skills_path, class: "form_searchbar", method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control border-radius-form",
+          placeholder: "Find a skill"
+        %>
+      <% end %>
+    </div>
+  </div>
   <div class="row">
     <% @skills.each do |skill| %>
       <%= render "shared/card", skill: skill%>

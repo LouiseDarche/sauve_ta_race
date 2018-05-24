@@ -3,9 +3,14 @@ class SkillsController < ApplicationController
 
   def index
     @skills = policy_scope(Skill)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query OR category ILIKE :query OR location ILIKE :query"
+      @skills = Skill.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @skills = Skill.all
+    end
   end
 
-# elsa
   def show
     @skill = Skill.find(params[:id])
 
@@ -62,7 +67,7 @@ class SkillsController < ApplicationController
   private
 
   def skill_params
-    params.require(:skill).permit(:user, :name, :description, :location, :price, :photo)
+    params.require(:skill).permit(:user, :name, :description, :location, :price, :photo, :category)
   end
 
 end
