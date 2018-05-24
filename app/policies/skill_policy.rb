@@ -9,5 +9,13 @@ class SkillPolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    return true
+  end
+
+  def update?
+    record.user == user
+  end
+
 
 end
