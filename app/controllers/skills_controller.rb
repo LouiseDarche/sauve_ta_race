@@ -14,7 +14,7 @@ class SkillsController < ApplicationController
       [{
               lat: @skill.latitude,
               lng: @skill.longitude#,
-              # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+              #infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
             }]
   end
 
@@ -27,15 +27,29 @@ class SkillsController < ApplicationController
     @skill = Skill.new(skill_params)
     @skill.user = current_user
     authorize(@skill)
-    @skill.save
+    if @skill.save
     #change to right path
-    redirect_to skills_path
+      redirect_to skill_path(@skill)
+    else
+      render :new
+    end
   end
 
   def edit
+    @skill = Skill.find(params[:id])
+    authorize(@skill)
   end
 
   def update
+    @skill = Skill.find(params[:id])
+    authorize(@skill)
+    @skill.update(skill_params)
+    if @skill.save
+      redirect_to skill_path(@skill)
+    else
+      render :new
+    end
+
   end
 
   def destroy
