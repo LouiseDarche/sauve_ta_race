@@ -19,7 +19,6 @@ class BookingsController < ApplicationController
     authorize(@booking)
     @booking.save
     redirect_to user_path(current_user)
-
   end
 
   private
