@@ -15,7 +15,8 @@
           <p><i class="fa fa-map-marker-alt"></i> <%= skill.location %></p>
           <p id="price"> Price: <%= skill.price %>€</p>
         </div>
-        <%#= image_tag('skill.user.photo') %>
+        <%= image_tag skill.user.smart_avatar_url, class: "avatar" %>
+        <%#= cl_image_tag('skill.user.photo.identifier') %>
       </div>
     </div>
   <% end %>

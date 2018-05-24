@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.skill = @skill
+    @booking.status = "pending"
     authorize(@booking)
     @booking.save
     redirect_to user_path(current_user)
