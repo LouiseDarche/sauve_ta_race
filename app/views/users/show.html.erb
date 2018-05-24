@@ -41,7 +41,7 @@
 
       <div class="row">
         <div class="booking-list">
-          <% @user.bookings.each do |booking| %>
+          <% @user.bookings.where.not(starts_at: nil).each do |booking| %>
             <div class="col-xs-12 col-md-4">
               <%= link_to skill_path(booking.skill) do %>
                 <div class="card">
@@ -51,11 +51,11 @@
                   <% else %>
                     <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>');">
                       <div id="start-date-frame">
-                        <% days = (booking.starts_at - Date.today)%>
+                        <% days = (booking.starts_at - Date.today).to_i %>
                         <% if days <= 0 %>
                          <p id="finished">Bootcamp finished</p>
                         <% else %>
-                          <p id="start-date">Starting in: <%= days.to_i %> days</p>
+                          <p id="start-date">Starting in: <%= days %> days</p>
                         <% end %>
                       </div>
 
