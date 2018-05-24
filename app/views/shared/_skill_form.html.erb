@@ -12,9 +12,9 @@
         <%= f.input :photo_cache, as: :hidden %>
       </div>
       <div class="form-btn">
-        <% if policy(Skill).create? %>
+        <% if Skill.find(@skill.id).nil? %>
           <%= f.submit "Create a skill", class: "btn btn-primary btn-lg in_page" %>
-        <% elsif policy(restaurant).edit? %>
+        <% else %>
           <%= f.submit "Update the skill", class: "btn btn-primary btn-lg in_page" %>
         <% end %>
       </div>
