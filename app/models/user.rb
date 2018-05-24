@@ -16,5 +16,10 @@ class User < ApplicationRecord
       cl_image_path photo, crop: :fit, width: 42, height: 42
     end
   end
+
+  def trainer?
+    return true if self.skills.length != 0
+  end
+
 end
 

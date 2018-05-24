@@ -14,4 +14,5 @@ class Skill < ApplicationRecord
     tsearch: {prefix: true }
   }
   # validates :name, presence: true
+
 end
