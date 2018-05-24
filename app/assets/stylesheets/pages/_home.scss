@@ -22,7 +22,6 @@ h2 {
   font-weight: 400;
   text-align: center;
   color: $gray;
-  padding-top: 20px;
   padding-bottom: 40px;
 }
 
@@ -45,6 +44,27 @@ h2 {
 
 .home-button {
   text-align: center;
-    padding: 35px;
-    margin-bottom: 30px;
+  padding: 35px;
 }
+
+.home-list {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#reasons-list {
+  font-family: Work Sans;
+  font-size: 25px;
+  color: $gray;
+  list-style-type: none;
+  padding: 35px;
+  .fa {
+    color: $gray  ;
+    font-size: 20px;
+    padding: 15px;
+  }
+}
+
+.li {
+    padding: 20px;
+  }
