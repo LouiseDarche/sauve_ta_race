@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="title">
+    <h3 id="title">My skills</h3>
+  </div>
+
+  <% @skills.each do |skill| %>
+    <div class="information-frame">
+
+          <div class="row">
+          <%= render "shared/card", skill: skill%>
+          <% skill.bookings.each do |booking| %>
+            <p><%= booking.status %> for <%= booking.user.name %></p>
+            <button id="accept">Accept</button>
+            <%= link_to "Accept", edit_skill_booking_path(booking) %>
+          <% end %>
+      </div>
+    </div>
+    <%= link_to "Edit", edit_skill_path(skill), class: "secondary-link" %>
+  <% end %>
+</div>
+<%= javascript_pack_tag 'uploadbtn' %>
+
+

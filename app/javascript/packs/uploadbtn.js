@@ -6,3 +6,5 @@ function updateText() {
 }
 
 uploadBtn.addEventListener('change', updateText);
+
+

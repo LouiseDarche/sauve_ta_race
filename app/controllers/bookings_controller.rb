@@ -25,6 +25,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @skill = Skill.find(params[:skill_id])
+    @booking = Booking.find(params[:id])
+    authorize(@booking)
+  end
+
+  def update
+    @skill = Skill.find(params[:skill_id])
+    @booking = Booking.find(params[:id])
+
+  end
+
+
   private
 
   def booking_params

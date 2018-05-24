@@ -6,8 +6,8 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   include CloudinaryHelper
 
-  has_many :skills
   has_many :bookings, dependent: :destroy
+  has_many :skills, dependent: :destroy
 
   def smart_avatar_url
     if photo.url.nil?
