@@ -88,3 +88,11 @@ a:hover {
     font-size: 30px;
   }
 }
+
+.profile-avatar {
+  background-size: cover !important;
+  background-position: center;
+  height: 60px;
+  width: 70px;
+  border-radius: 50%;
+}

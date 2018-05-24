@@ -1,5 +1,6 @@
 class Skill < ApplicationRecord
   belongs_to :user
+  has_many :bookings
   mount_uploader :photo, PhotoUploader
 
 
@@ -13,4 +14,5 @@ class Skill < ApplicationRecord
     tsearch: {prefix: true }
   }
   # validates :name, presence: true
+
 end

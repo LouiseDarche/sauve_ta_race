@@ -16,16 +16,19 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.skill = @skill
+    @booking.status = "pending"
     authorize(@booking)
-    @booking.save
-    redirect_to user_path(current_user)
-
+    if @booking.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:user, :skill, :starting_date, :duration)
+    params.require(:booking).permit(:user, :skill, :starts_at, :ends_at)
   end
 
 

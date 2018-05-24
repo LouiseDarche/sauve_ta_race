@@ -5,19 +5,52 @@
   margin-bottom: 50px;
 }
 
-.booking h3 {
+.information-frame h3 {
   text-align: left;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 30px;
+  color: #023158;
 }
 
-#start-date-center {
-  text-align: center;
+#start-date-frame {
+  position: absolute;
+  right: 10px;
+  color: white;
   font-size: 15px;
+
+  p {
+    margin: 0;
+    padding: 3px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
 }
 
 .information-frame {
   background-color: white;
   border: 1px solid rgba(0,0,0,0.2);
   margin: 10px 0px;
+  padding: 20px 10px;
 }
+
+.no-padding-link {
+  text-align: center;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.booking-list {
+  padding: 0px 10px;
+}
+
+
+#finished {
+    background-color: red;
+    opacity: 0.5;
+}
+
+#start-date {
+    background-color: #023158;
+    opacity: 0.8;
+}
+

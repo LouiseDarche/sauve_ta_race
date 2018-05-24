@@ -7,7 +7,7 @@ class SkillsController < ApplicationController
       sql_query = "name ILIKE :query OR description ILIKE :query OR category ILIKE :query OR location ILIKE :query"
       @skills = Skill.where(sql_query, query: "%#{params[:query]}%")
     else
-      @skills = Skill.all
+      @skills = Skill.where.not(user: current_user)
     end
   end
 
@@ -17,9 +17,9 @@ class SkillsController < ApplicationController
     authorize(@skill)
     @markers =
       [{
-              lat: @skill.latitude,
-              lng: @skill.longitude#,
-              #infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lat: @skill.latitude,
+        lng: @skill.longitude#,
+        #infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
             }]
   end
 

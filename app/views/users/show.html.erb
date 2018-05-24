@@ -1,16 +1,36 @@
 <div class="container">
-  <div class="booking">
-    <div class="welcome">
+  <div class="welcome">
       <h3>Hello <%= @user.name %> !</h3>
-      <p>My status : <%= @user.status.capitalize %></p>
+      <% if !@user.status.nil? %>
+        <p>My status : <%= @user.status.capitalize %></p>
+      <% end %>
       <!-- <div>
         <%#= link_to "Book a camp", skills_path, class: "btn btn-primary btn-lg in_page" %>
         <%#= link_to "Create a camp", edit_user_path(current_user), class: "btn secondary-link" %>
       </div> -->
-    </div>
+  </div>
 
+  <div class="booking">
     <div class="information-frame">
       <h3>Notifications</h3>
+      <% if @user.bookings.length != 0 %>
+        <h4>My candidacies</h4>
+        <ul>
+          <% @user.bookings.each do |booking| %>
+            <li><%= booking.status %> : Waiting for <%= @user.name %> to reply </li>
+          <% end %>
+        </ul>
+        <h4>My pending replies</h4>
+        <ul>
+          <% @user.skills.each do |skill| %>
+            <% skill.bookings.each do |booking| %>
+              <li><%= skill.booking.status %> : Answer <%= @skill.booking.user.name %> </li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% else %>
+        <h4></h4>
+      <% end %>
 
     </div>
 
@@ -20,39 +40,82 @@
       </div>
 
       <div class="row">
-        <% @user.bookings.each do |booking| %>
-          <div class="col-xs-12 col-md-4">
-            <%= link_to skill_path(booking.skill) do %>
-              <div class="card">
-                <% if booking.skill.photo.nil? %>
-                  <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'logo.png' %>');">
+        <div class="booking-list">
+          <% @user.bookings.each do |booking| %>
+            <div class="col-xs-12 col-md-4">
+              <%= link_to skill_path(booking.skill) do %>
+                <div class="card">
+                  <% if booking.skill.photo.nil? %>
+                    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'logo.png' %>');">
+                    </div>
+                  <% else %>
+                    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>');">
+                      <div id="start-date-frame">
+                        <% days = (booking.starts_at - Date.today)%>
+                        <% if days <= 0 %>
+                         <p id="finished">Bootcamp finished</p>
+                        <% else %>
+                          <p id="start-date">Starting in: <%= days.to_i %> days</p>
+                        <% end %>
+                      </div>
+
+                    </div>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="card-description align-left">
+                      <h2><strong> <%= booking.skill.name %></strong> </h2>
+                      <p><i class="fa fa-map-marker-alt"></i> <%= booking.skill.location %></p>
+                      <p id="price"> Price: <%= booking.skill.price %>€</p>
+                    </div>
+                    <div class="profile-avatar" style="background-image: url('<%= booking.user.photo %>');" >
+                    </div>
                   </div>
-                <% else %>
-                  <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>');">
-                  </div>
-                <% end %>
-                <div class="card-body">
-                  <div class="card-description align-left">
-                    <h2><strong> <%= booking.skill.name %></strong> </h2>
-                    <p><i class="fa fa-map-marker-alt"></i> <%= booking.skill.location %></p>
-                    <p id="price"> Price: <%= booking.skill.price %>€</p>
-                  </div>
-                  <img class="card-user" src="https://i.pinimg.com/736x/89/49/8e/89498e10092d7b57c0ebc11a5b535cb2--twitter-cats.jpg">
                 </div>
-              </div>
-              <div>
-                <p id="start-date-center">Starting on : <%= booking.starting_date %></p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+                <div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 
     <div class="information-frame">
       <h3>My skills</h3>
+      <div class="row">
+        <div class="booking-list">
+          <% @user.skills.each do |skill| %>
+            <div class="col-xs-12 col-md-4">
+              <%= link_to skill_path(skill) do %>
+                <div class="card">
+                  <% if skill.photo.nil? %>
+                    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'logo.png' %>');">
+                    </div>
+                  <% else %>
+                    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= skill.photo %>');">
+
+                    </div>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="card-description align-left">
+                      <h2><strong> <%= skill.name %></strong> </h2>
+                      <p><i class="fa fa-map-marker-alt"></i> <%= skill.location %></p>
+                      <p id="price"> Price: <%= skill.price %>€</p>
+                    </div>
+                    <!-- <div class="profile-avatar" style="background-image: url('<%#= booking.user.photo %>');" >
+                    </div> -->
+                  </div>
+                </div>
+                <div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-
   </div>
+
+
 </div>
