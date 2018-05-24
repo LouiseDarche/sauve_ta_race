@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Booking.destroy_all
+Skill.destroy_all
+User.destroy_all
+
+
 puts "Creating 5 users"
 
 5.times do
@@ -23,14 +28,17 @@ puts "Creating 5 users"
 end
 puts "#{User.all}"
 
+puts "Cleaning database"
+
 puts "Creating 6 skills"
+
 
 running = Skill.new(
   name: "Running bootcamp with a leopard",
   description: "Learn to run with a leopard, you will never be caught by anyone anymore!",
   location: "Serengeti savanna",
   price: "250",
-  photo: "https://hc8fm03jtw-flywheel.netdna-ssl.com/wp-content/uploads/2016/06/calendar1-600x600_c.jpg",
+  remote_photo_url: "https://hc8fm03jtw-flywheel.netdna-ssl.com/wp-content/uploads/2016/06/calendar1-600x600_c.jpg",
   user: User.all.sample
   )
 running.save!
@@ -40,7 +48,7 @@ hiding = Skill.new(
   description: "Learn to hid with a cat, you will never be caught by anyone anymore!",
   location: "Tokyo, Japan",
   price: "130",
-  photo: "http://www.holidogtimes.com/it/wp-content/uploads/sites/3/2016/05/cat-hide-seek-13.jpg?2e4e73",
+  remote_photo_url: "http://www.holidogtimes.com/it/wp-content/uploads/sites/3/2016/05/cat-hide-seek-13.jpg?2e4e73",
   user: User.all.sample
   )
 hiding.save!
@@ -50,7 +58,7 @@ fishing = Skill.new(
   description: "Learn to fish with a bear, you will never starve anymore!",
   location: "Montreal, Canada",
   price: "200",
-  photo: "https://i.pinimg.com/originals/89/20/83/89208300d0f3be73ee565f6429d13ed2.jpg",
+  remote_photo_url: "https://i.pinimg.com/originals/89/20/83/89208300d0f3be73ee565f6429d13ed2.jpg",
   user: User.all.sample
   )
 fishing.save!
@@ -60,7 +68,7 @@ swimming = Skill.new(
   description: "Learn to swim with a swordfish, you will never die anymore!",
   location: "Marseille, France",
   price: "100",
-  photo: "https://teamseafoods.files.wordpress.com/2015/11/swordfish-underwater.jpg",
+  remote_photo_url: "https://teamseafoods.files.wordpress.com/2015/11/swordfish-underwater.jpg",
   user: User.all.sample
   )
 swimming.save!
@@ -70,7 +78,7 @@ begging = Skill.new(
   description: "Learn to socialise with a dog, you will never be alone anymore!",
   location: "London, UK",
   price: "150",
-  photo: "https://steemitimages.com/0x0/https://s-media-cache-ak0.pinimg.com/564x/74/88/22/7488228009d153e94a00427f674d54bb.jpg",
+  remote_photo_url: "https://steemitimages.com/0x0/https://s-media-cache-ak0.pinimg.com/564x/74/88/22/7488228009d153e94a00427f674d54bb.jpg",
   user: User.all.sample
   )
 begging.save!
@@ -80,7 +88,7 @@ surfing = Skill.new(
   description: "Learn to surf with a goat, you will never be a looser anymore!",
   location: "Bali, Indonesia",
   price: "300",
-  photo: "https://cdn.modernfarmer.com/wp-content/uploads/2016/08/goatee-surfing.jpg",
+  remote_photo_url: "https://cdn.modernfarmer.com/wp-content/uploads/2016/08/goatee-surfing.jpg",
   user: User.all.sample
   )
 surfing.save!
