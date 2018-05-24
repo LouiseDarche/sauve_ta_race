@@ -1,34 +1,32 @@
-<div class="row" style="padding-top: 30px;">
+<div class="row">
   <div class="col-xs-6 col-xs-offset-3">
-    <%= simple_form_for (@skill) do |f| %>
-      <div class="form-group">
+    <div class="form-background-white">
+      <%= simple_form_for (@skill) do |f| %>
+        <div class="form-group">
+          <%= f.input :name %>
+          <%= f.input :category %>
+          <%= f.input :description %>
+          <%= f.input :location %>
+          <%= f.input :price %>
+          <label class="btn btn-primary btn-lg in_page" id='upload-btn'>
+            Add a picture!
+            <span style="display:none;">
+              <%= f.input :photo, required: true, multiple: true, name: 'photo' %>
+            </span>
+          <%= f.input :photo_cache, as: :hidden %>
+          </label>
 
-        <%= f.input :name %>
-        <%#= f.input :category %>
-        <%= f.input :description %>
-        <%= f.input :location %>
-        <%= f.input :price %>
-
-        <%#= f.input :photo %>
-        <label class="btn btn-primary btn-lg in_page" id='upload-btn'>
-          Add a file!
-          <span style="display:none;">
-            <%= f.input :photo, required: true, multiple: true, name: 'photo' %>
-          </span>
-        <%= f.input :photo_cache, as: :hidden %>
-        </label>
-
-      </div>
-      <div class="form-btn">
-        <% if @skill.id.nil? %>
-          <%= f.submit "Create a skill", class: "btn btn-primary btn-lg in_banner" %>
-        <% else %>
-          <%= f.submit "Update the skill", class: "btn btn-primary btn-lg in_banner" %>
-          <%= link_to "Back to skill", skill_path(@skill), class: "secondary-link" %>
-        <% end %>
-      </div>
-    <% end %>
-
+        </div>
+        <div class="form-btn">
+          <% if @skill.id.nil? %>
+            <%= f.submit "Create a skill", class: "btn btn-primary btn-lg in_banner" %>
+          <% else %>
+            <%= f.submit "Update the skill", class: "btn btn-primary btn-lg in_banner" %>
+            <%= link_to "Back to skill", skill_path(@skill), class: "secondary-link" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= javascript_pack_tag 'uploadbtn' %>
   </div>
-  <%= javascript_pack_tag 'uploadbtn' %>
 </div>

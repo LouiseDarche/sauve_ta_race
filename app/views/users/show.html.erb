@@ -51,7 +51,7 @@
                   <% else %>
                     <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>');">
                       <div id="start-date-frame">
-                        <% days = (booking.starting_date - Date.today)%>
+                        <% days = (booking.starts_at - Date.today)%>
                         <% if days <= 0 %>
                          <p id="finished">Bootcamp finished</p>
                         <% else %>
