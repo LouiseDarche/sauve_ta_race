@@ -1,7 +1,9 @@
 <div class="container">
   <div class="welcome">
       <h3>Hello <%= @user.name %> !</h3>
-      <p>My status : <%= @user.status.capitalize %></p>
+      <% if !@user.status.nil? %>
+        <p>My status : <%= @user.status.capitalize %></p>
+      <% end %>
       <!-- <div>
         <%#= link_to "Book a camp", skills_path, class: "btn btn-primary btn-lg in_page" %>
         <%#= link_to "Create a camp", edit_user_path(current_user), class: "btn secondary-link" %>
@@ -11,20 +13,24 @@
   <div class="booking">
     <div class="information-frame">
       <h3>Notifications</h3>
-      <h4>My candidacies</h4>
-      <ul>
-        <% @user.bookings.each do |booking| %>
-          <li><%= booking.status %> : Waiting for <%= @user.name %> to reply </li>
-        <% end %>
-      </ul>
-      <h4>My pending replies</h4>
-      <ul>
-        <% @user.skills.each do |skill| %>
-          <% skill.bookings.each do |booking| %>
-            <li><%= skill.booking.status %> : Answer <%= @skill.booking.user.name %> </li>
+      <% if @user.bookings.length != 0 %>
+        <h4>My candidacies</h4>
+        <ul>
+          <% @user.bookings.each do |booking| %>
+            <li><%= booking.status %> : Waiting for <%= @user.name %> to reply </li>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+        <h4>My pending replies</h4>
+        <ul>
+          <% @user.skills.each do |skill| %>
+            <% skill.bookings.each do |booking| %>
+              <li><%= skill.booking.status %> : Answer <%= @skill.booking.user.name %> </li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% else %>
+        <h4></h4>
+      <% end %>
 
     </div>
 

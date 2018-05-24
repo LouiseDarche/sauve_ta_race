@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :show]
   end
 
+  resources :users do
+    resources :skills, only: [:index, :show]
+  end
+
   resources :skills do
     resources :bookings, only: [:new, :create]
   end
