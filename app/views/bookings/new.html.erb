@@ -1,24 +1,18 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-    <h2><%= @skill.name %></h2>
-      <div class="booking-form">
-        <div>
-          <%= simple_form_for [@skill, @booking] do |f|%>
-            <%= f.input :starting_date %>
-            <%#= f.input :duration,  collection: 1..15 %>
-                <!-- compute the duration price -->
-            <%# stay_price = (@skill.price * @duration)%>
-            <p>Total price : <%= @skill.price %>€</p>
-            <div>
-              <%= f.button :submit, class: "btn btn-primary btn-lg in_page" %>
-              <%#= link_to "Cancel", skills_path, class: "btn btn-danger btn-lg in_page" %>
-            </div>
-          <% end %>
-        </div>
-        <div class="booking-image">
-          <%= cl_image_tag @skill.photo, crop: :fill %>
-        </div>
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="wrapper-booking-show" style="width: 400px; margin: 0 auto;">
+      <div class="booking-date-picker">
+        <h2><%= @skill.name %></h2>
+        <p>When do you choose to learn how to survive?</p>
+        <%= simple_form_for :search, method: "get" do |f| %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {id:"range_start"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {id:"range_end"} %>
+          <%= f.button :submit, "Go", class: "btn btn-primary btn-lg in_page" %>
+        <% end %>
+        <p><i class="fa fa-eur" aria-hidden="true"></i><%= @skill.price %>€</p>
+      </div>
+      <div class="booking-image">
+        <%= cl_image_tag @skill.photo %>
       </div>
     </div>
   </div>
