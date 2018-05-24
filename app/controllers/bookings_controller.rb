@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
     policy_scope(Booking)
   end
 
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user, :skill, :starting_date, :duration)
+    params.require(:booking).permit(:user, :skill, :stars_at, :ends_at)
   end
 
 
