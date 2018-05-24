@@ -20,12 +20,12 @@
 
       </div>
       <div class="form-btn">
-        <% if Skill.find(@skill.id).nil? %>
+        <% if @skill.id.nil? %>
           <%= f.submit "Create a skill", class: "btn btn-primary btn-lg in_banner" %>
         <% else %>
           <%= f.submit "Update the skill", class: "btn btn-primary btn-lg in_banner" %>
+          <%= link_to "Back to skill", skill_path(@skill), class: "secondary-link" %>
         <% end %>
-        <%= link_to "Back to skill", skill_path(@skill), class: "secondary-link" %>
       </div>
     <% end %>
 
