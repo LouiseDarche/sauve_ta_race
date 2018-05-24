@@ -26,12 +26,16 @@
         <p><%= @skill.description %></p>
         <p id="location">Location : <%= @skill.location %></p>
       </div>
+      <%= link_to "Back to list", skills_path, class: "no-padding-link" %>
     </div>
 
 
     <div class="left-part">
       <div class="trainer">
-        <%= image_tag 'logo_trainer.png', class: "avatar" %>
+        <%# if @skill.user.photo.length == 1 %>
+          <div class="avatar" style="background-image: url('<%= @skill.user.smart_avatar_url %>')" ></div>
+         <%# end %>
+        <%#= cl_image_tag "@skill.user.photo.identifier", class: "avatar" %>
         <p>Offered by <%= @skill.user.name %></p>
       </div>
       <div class="links">
