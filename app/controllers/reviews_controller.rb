@@ -4,6 +4,7 @@ def create
     @review = Review.new(review_params)
     authorize(@review)
     @review.skill = @skill
+    @review.user = current_user
     if @review.save
       respond_to do |format|
         format.html { redirect_to skill_path(@skill) }
