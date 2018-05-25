@@ -12,7 +12,7 @@
       <!-- Links when logged in -->
       <%= link_to "Create a camp", new_skill_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Book a camp", skills_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My bookings", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+
 
 
       <!-- Avatar with dropdown menu -->
@@ -21,12 +21,9 @@
           <% if current_user.photo.nil?%>
             <%= image_tag "logo_trainer.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-            <% if current_user.status == "trainee" %>
-              <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", style: "border: 1px solid blue" %>
-            <% else %>
-              <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", style: "border: 1px solid red" %>
 
-            <% end %>
+              <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>

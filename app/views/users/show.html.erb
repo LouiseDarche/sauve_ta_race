@@ -1,8 +1,10 @@
 <div class="container">
   <div class="welcome">
       <h3>Hello <%= @user.name %> !</h3>
-      <% if !@user.status.nil? %>
-        <p>My status : <%= @user.status.capitalize %></p>
+      <% if !@user.skills.empty? %>
+        <p>My status : Trainee</p>
+      <% else %>
+        <p>My status : Trainer</p>
       <% end %>
       <!-- <div>
         <%#= link_to "Book a camp", skills_path, class: "btn btn-primary btn-lg in_page" %>
@@ -17,14 +19,14 @@
         <h4>My candidacies</h4>
         <ul>
           <% @user.bookings.each do |booking| %>
-            <li><%= booking.status %> : Waiting for <%= @user.name %> to reply </li>
+            <li><%= booking.status %> : Waiting for <%= booking.skill.user.name %> to reply </li>
           <% end %>
         </ul>
         <h4>My pending replies</h4>
         <ul>
           <% @user.skills.each do |skill| %>
             <% skill.bookings.each do |booking| %>
-              <li><%= skill.booking.status %> : Answer <%= @skill.booking.user.name %> </li>
+              <li><%= booking.status %> : Answer <%= booking.user.name %> </li>
             <% end %>
           <% end %>
         </ul>

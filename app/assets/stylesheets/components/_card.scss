@@ -3,11 +3,18 @@
   color: black;
   margin-bottom: 30px;
   box-shadow: 1px 1px 2px #B3B3B3;
+  position: relative ;
 
   &:hover .image {
     opacity: 0.8;
     text-decoration: none;
   }
+
+  &:hover .card-category {
+    opacity: 1;
+  }
+
+
 }
 
 .image {
@@ -31,9 +38,17 @@
 }
 .card-category {
   top: 10px;
-  left: 10px;
+  right: 10px;
   font-size: 15px;
   text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: absolute;
+
+  p {
+    padding: 7px;
+    margin: 0px;
+  }
 }
 .card-description {
   bottom: 10px;

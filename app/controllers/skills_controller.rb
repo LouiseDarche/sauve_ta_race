@@ -13,7 +13,7 @@ class SkillsController < ApplicationController
 
   def show
     @skill = Skill.find(params[:id])
-
+    @review = Review.new
     authorize(@skill)
     @markers =
       [{

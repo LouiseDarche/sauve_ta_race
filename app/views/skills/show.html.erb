@@ -1,4 +1,3 @@
-
 <div class="banner in-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @skill.photo %>);background-position: center;">
   <div class="banner-content">
     <h1><%= @skill.name %></h1>
@@ -9,9 +8,7 @@
   </div>
 </div>
 
-
 <div class="container">
-
   <div class="skill">
     <div class="camp">
       <div class="heading">
@@ -51,9 +48,27 @@
     </div>
   </div>
 
-</div>
-
-<div id="map" style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>">
+  <div class="skill-reviews">
+    <h2 id="counter"><%= render 'skills/counter', skill: @skill %></h2>
+    <div id="reviews">
+      <% if @skill.reviews.blank? %>
+        <p id= "no-reviews-message">
+          Be the first to leave a review for <%= @skill.name %>
+        </p>
+      <% else %>
+        <div class="reviews">
+          <% @skill.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+    <%= render 'reviews/form', skill: @skill, review: @review %>
+  </div>
+
+  <div id="map" style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>">
+  </div>
+
+</div>
 

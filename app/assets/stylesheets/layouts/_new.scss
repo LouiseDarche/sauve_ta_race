@@ -1,5 +1,3 @@
-
-
 .booking-form {
   background-color: white;
   border: 1px solid rgba(0,0,0,0.2);
@@ -41,6 +39,16 @@
   }
 }
 
-.container {
-  height: calc(100vh - 140px)
+.skill-reviews {
+  margin-bottom: 50px;
+
+  h2 {
+    font-weight: bolder;
+  }
 }
+
+
+.invalid-feedback {
+  font-size: 12px;
+}
+

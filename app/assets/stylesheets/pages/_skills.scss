@@ -1,0 +1,75 @@
+.inner-title {
+  font-family: 'Work sans';
+  font-weight: bold;
+  color: #023158;
+}
+
+.booking-resume {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-title {
+  padding: 0px 10px;
+}
+
+.title-image {
+  flex: 0 0 30%;
+}
+
+.user-inf {
+  flex: 1 0 auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  .avatar {
+        margin: 10px;
+  }
+}
+
+.user-confirmation{
+  padding-right: 150px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+  display: flex;
+  .button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 20px 10px;
+  }
+}
+
+.accept {
+    background-color: green;
+    color: black;
+}
+
+.refuse {
+    background-color: red;
+    border-radius: 20px;
+    color: black;
+}
+
+#date {
+      padding: 0px 20px;
+    color: #023158;
+}
+
+.status {
+      padding: 5px 20px;
+    background-color: rgba(0,0,0,0.3);
+    margin: 16px;
+}
+
+.user-picture-name {
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

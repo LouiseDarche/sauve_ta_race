@@ -1,15 +1,16 @@
-import swal from "sweetalert";
+import sweetalert from "sweetalert";
 
-function bindSweetAlertButtonDemo() {
-  document.getElementById("sweet-alert-trainee").addEventListener('click', () => {
-    swal({
-      title: "Good choice !",
-      text: "Your trainer must accept your request now",
-      icon: "success",
-      button: false,
-      timer: 30000,
-    })
+function bindSweetAlertButtonDemo(title, user_id) {
+  swal({
+    title: title,
+    text: "Your trainer must accept your request now",
+    button: "Sounds good!",
+    timer: 30000,
+  }).then(function() {
+    window.location.href = `/users/${user_id}/bookings`;
   });
 }
 
 export { bindSweetAlertButtonDemo };
+
+
