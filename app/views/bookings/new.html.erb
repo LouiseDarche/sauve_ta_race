@@ -1,4 +1,3 @@
-
   <div class="container">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="booking-h2">
@@ -6,10 +5,10 @@
         <div class= "booking-form">
           <div class="booking-date-picker">
             <p>Select a date</p>
-            <%= simple_form_for [@skill, @booking] do |f| %>
+            <%= simple_form_for [@skill, @booking], remote: true do |f| %>
               <%= f.input :starts_at, as: :string, required: false, input_html: {id:"range_start"} %>
               <%= f.input :ends_at, as: :string, required: false, input_html: {id:"range_end"} %>
-              <%= f.submit "Confirm booking", class: "btn btn-primary btn-lg in_page" %>
+              <%= f.submit "Confirm booking", id: "sweet-alert-trainee", class: "btn btn-primary btn-lg in_page" %>
             <% end %>
             <!-- <p><i class="fa fa-eur" aria-hidden="true"></i><%#= @skill.price %>€</p> -->
           </div>
