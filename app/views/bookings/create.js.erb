@@ -1,0 +1,11 @@
+function refreshForm(newForm) {
+  const innerForm = document.getElementById("inner-form");
+  innerForm.innerHTML = newForm;
+}
+
+<% if @booking.errors.any? %>
+  refreshForm('<%= j render "bookings/form", skill: @skill, booking: @booking %>');
+<% else %>
+  bindSweetAlertButtonDemo('<%= @booking.skill.name %>', '<%= current_user.id %>');
+<% end %>
+
