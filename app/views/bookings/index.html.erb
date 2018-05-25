@@ -1,1 +1,86 @@
-index.html.erb
+<div class="container">
+  <div class="text-wrapper">
+    <h2>What new skill will you learn?</h2>
+      <div class="title">
+        <h3 id="title">My bookings</h3>
+      </div>
+
+    <div class="information-frame">
+      <% @bookings.each do |booking| %>
+        <div>
+          <h4>
+            <%= booking.skill.name %>
+          </h4>
+
+        </div>
+        <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>'); height: 200px; width: 300px; background-size: cover;">
+          <div id="start-date-frame">
+            <% days = (booking.starts_at - Date.today)%>
+            <% if days <= 0 %>
+             <p id="finished">Bootcamp finished</p>
+            <% else %>
+              <p id="start-date">Starting in: <%= days.to_i %> days</p>
+            <% end %>
+          </div>
+
+        </div>
+        <div>
+          <p>
+            <%= booking.skill.description %>
+          </p>
+          <p>
+            <%= booking.skill.location %>
+          </p>
+          <p>
+            <%= booking.skill.price %>€
+          </p>
+          <p>
+            Status : <%= booking.status %>
+          </p>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+        <div class="row">
+          <div class="booking-list">
+            <% @bookings.each do |booking| %>
+              <div class="col-xs-12 col-md-4">
+                <%= link_to skill_path(booking.skill) do %>
+                  <div class="card">
+                    <% if booking.skill.photo.nil? %>
+                      <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'logo.png' %>');">
+                      </div>
+                    <% else %>
+                      <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.skill.photo %>');">
+                        <div id="start-date-frame">
+                          <% days = (booking.starts_at - Date.today)%>
+                          <% if days <= 0 %>
+                           <p id="finished">Bootcamp finished</p>
+                          <% else %>
+                            <p id="start-date">Starting in: <%= days.to_i %> days</p>
+                          <% end %>
+                        </div>
+
+                      </div>
+                    <% end %>
+                    <div class="card-body">
+                      <div class="card-description align-left">
+                        <h2><strong> <%= booking.skill.name %></strong> </h2>
+                        <p><i class="fa fa-map-marker-alt"></i> <%= booking.skill.location %></p>
+                        <p id="price"> Price: <%= booking.skill.price %>€</p>
+                      </div>
+                      <div class="profile-avatar" style="background-image: url('<%= booking.user.photo %>');" >
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+    </div>
+</div>
