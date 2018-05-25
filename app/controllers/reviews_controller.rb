@@ -3,10 +3,17 @@ def create
     @skill = Skill.find(params[:skill_id])
     @review = Review.new(review_params)
     @review.skill = @skill
+    authorize(@review)
     if @review.save
-      redirect_to skill_path(@skill)
+      respond_to do |format|
+        format.html { redirect_to skill_path(@skill) }
+        format.js
+      end
     else
-      render 'skills/show'
+      respond_to do |format|
+        format.html { render 'skills/show' }
+        format.js
+      end
     end
   end
 
