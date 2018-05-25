@@ -19,23 +19,26 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize(@booking)
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to user_bookings_path(current_user)
     else
       render :new
     end
   end
 
-  # def edit
-  #   @skill = Skill.find(params[:skill_id])
-  #   @booking = Booking.find(params[:id])
-  #   authorize(@booking)
-  # end
 
-  # def update
-  #   @skill = Skill.find(params[:skill_id])
-  #   @booking = Booking.find(params[:id])
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "confirmed")
+    authorize(@booking)
+    redirect_to users_skills_path
+  end
 
-  # end
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "refused")
+    authorize(@booking)
+    redirect_to users_skills_path
+  end
 
 
   private
