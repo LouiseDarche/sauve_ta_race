@@ -1,24 +1,57 @@
 
 <div class="container">
   <div class="title">
-    <h3 id="title">My skills</h3>
+    <h3 id="title" >My skills</h3>
+    <h4>
+      <% pending_bookings = [] %>
+      <% @skills.each do |skill| %>
+        <% skill.bookings.each do |booking| %>
+          <% if booking.status == "pending" %>
+            <% pending_bookings << booking %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= pluralize pending_bookings.size, "request" %> today
+    </h4>
   </div>
 
+
   <% @skills.each do |skill| %>
-    <div class="information-frame">
+    <% skill.bookings.each do |booking| %>
+      <% if booking.status == "pending" %>
+        <div class="information-frame">
 
-          <div class="row">
-          <%= render "shared/card", skill: skill%>
-          <% skill.bookings.each do |booking| %>
-            <p><%= booking.status %> for <%= booking.user.name %></p>
-            <button id="accept">Accept</button>
+            <div class="booking-resume">
+              <div class="title-image">
+                <div class="inner-title"><%= skill.name %></div>
+                <div><%= cl_image_tag skill.photo, width: 300, height: 200 %></div>
+              </div>
+              <%#= render "shared/card", skill: skill%>
+              <div class="user-inf">
+                <div class="user-confirmation">
+                  <div id="date">
+                    <p > New request from <%= booking.starts_at %> to <%= booking.ends_at %></p>
+                  </div>
+                  <div class="status">
+                    <%= booking.status %>
+                  </div>
+                  <div class="buttons">
+                    <div class="button accept"> <%= link_to "Accept", booking_path(booking), method: :patch %></div>
+                    <div class="button refuse"> <%= link_to "Refuse", booking_path(booking), method: :delete %></div>
+                  </div>
+                </div>
+                <div class="user-picture-name">
+                  <%= image_tag booking.user.smart_avatar_url, class: "avatar" %>
+                  <p><%= booking.user.name.capitalize %></p>
 
+                </div>
+              </div>
 
-            <%#= link_to "Accept", edit_skill_booking_path(booking) %>
-          <% end %>
-      </div>
-    </div>
-    <%= link_to "Edit", edit_skill_path(skill), class: "secondary-link" %>
+            </div>
+
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 <%= javascript_pack_tag 'uploadbtn' %>
