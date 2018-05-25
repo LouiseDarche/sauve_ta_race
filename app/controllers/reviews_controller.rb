@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
 def create
     @skill = Skill.find(params[:skill_id])
     @review = Review.new(review_params)
-    @review.skill = @skill
     authorize(@review)
+    @review.skill = @skill
     if @review.save
       respond_to do |format|
         format.html { redirect_to skill_path(@skill) }

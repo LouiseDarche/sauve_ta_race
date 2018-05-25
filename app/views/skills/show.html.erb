@@ -47,22 +47,24 @@
       </div>
     </div>
   </div>
-  <h2 id="counter">
-    <%= render 'skills/counter', skill: @skill %>
-  </h2>
 
-  <div id="reviews">
-    <% if @skill.reviews.blank? %>
-      <p id= "no-reviews-message">
-        Be the first to leave a review for <%= @skill.name %>
-      </p>
-    <% else %>
-      <% @skill.reviews.each do |review| %>
-        <%= render 'reviews/show', review: review %>
+  <div class="skill-reviews">
+    <h2 id="counter"><%= render 'skills/counter', skill: @skill %></h2>
+    <div id="reviews">
+      <% if @skill.reviews.blank? %>
+        <p id= "no-reviews-message">
+          Be the first to leave a review for <%= @skill.name %>
+        </p>
+      <% else %>
+        <div class="reviews">
+          <% @skill.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
+    <%= render 'reviews/form', skill: @skill, review: @review %>
   </div>
-  <%= render 'reviews/form', skill: @skill, review: @review %>
 
   <div id="map" style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>">
