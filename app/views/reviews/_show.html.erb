@@ -1,5 +1,7 @@
 <div class="review">
-  <div class="user-review"></div>
+    <div class="user-photo">
+      <%= cl_image_tag review.user.photo, class: "avatar" %>
+    </div>
   <div class="review-content">
     <p><%= review.content %></p>
   </div>

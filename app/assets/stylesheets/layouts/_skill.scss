@@ -65,6 +65,30 @@
   }
 }
 
+.review {
+  display: flex;
+  margin: 40px;
+  margin-left:0px;
+
+}
+
+.review-content {
+  padding-top: 7px;
+  padding-left: 20px;
+  // border-bottom: solid 3px black;
+}
+
+.skill-reviews {
+  margin: 40px;
+
+  h2 {
+    font-weight: bolder;
+    text-align: left;
+    margin-top: 30px;
+    padding-bottom:0px;
+  }
+}
+
 // html {
 //   position: relative;
 //   min-height: 100%;
