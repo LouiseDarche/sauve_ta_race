@@ -47,17 +47,13 @@ h2 {
   padding: 35px;
 }
 
-.home-list {
-  text-align: center;
-  padding-top: 30px;
-}
-
 #reasons-list {
   font-family: Work Sans;
   font-size: 25px;
   color: $gray;
   list-style-type: none;
   padding: 35px;
+  text-align: center;
   .fa {
     color: $gray  ;
     font-size: 20px;
