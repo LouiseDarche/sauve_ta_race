@@ -12,7 +12,9 @@
           <% skill.bookings.each do |booking| %>
             <p><%= booking.status %> for <%= booking.user.name %></p>
             <button id="accept">Accept</button>
-            <%= link_to "Accept", edit_skill_booking_path(booking) %>
+
+
+            <%#= link_to "Accept", edit_skill_booking_path(booking) %>
           <% end %>
       </div>
     </div>
