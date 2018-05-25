@@ -19,9 +19,15 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize(@booking)
     if @booking.save
-      redirect_to user_bookings_path(current_user)
+      respond_to do |format|
+        format.html { redirect_to user_bookings_path(current_user) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
