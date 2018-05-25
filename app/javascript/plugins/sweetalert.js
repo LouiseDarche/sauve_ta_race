@@ -1,4 +1,4 @@
-import swal from "sweetalert";
+import sweetalert from "sweetalert";
 
 function bindSweetAlertButtonDemo(title, user_id) {
   swal({

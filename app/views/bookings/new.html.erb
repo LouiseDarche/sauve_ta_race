@@ -5,12 +5,14 @@
         <div class= "booking-form">
           <div class="booking-date-picker">
             <p>Select a date</p>
-            <%= simple_form_for [@skill, @booking], remote: true do |f| %>
-              <%= f.input :starts_at, as: :string, required: false, input_html: {id:"range_start"} %>
-              <%= f.input :ends_at, as: :string, required: false, input_html: {id:"range_end"} %>
-              <%= f.submit "Confirm booking", id: "sweet-alert-trainee", class: "btn btn-primary btn-lg in_page" %>
-            <% end %>
-            <!-- <p><i class="fa fa-eur" aria-hidden="true"></i><%#= @skill.price %>€</p> -->
+            <div id="inner-form">
+              <%= simple_form_for [@skill, @booking], remote: true do |f| %>
+                <%= f.input :starts_at, as: :string, required: false, input_html: {id:"range_start"} %>
+                <%= f.input :ends_at, as: :string, required: false, input_html: {id:"range_end"} %>
+                <%= f.submit "Confirm booking", id: "sweet-alert-trainee", class: "btn btn-primary btn-lg in_page" %>
+              <% end %>
+              <!-- <p><i class="fa fa-eur" aria-hidden="true"></i><%#= @skill.price %>€</p> -->
+            </div>
           </div>
           <div class="booking-image">
             <%= cl_image_tag @skill.photo %>
