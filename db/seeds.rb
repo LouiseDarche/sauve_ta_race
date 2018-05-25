@@ -10,6 +10,7 @@ require 'faker'
 Booking.destroy_all
 Skill.destroy_all
 User.destroy_all
+Review.destroy_all
 
 
 puts "Creating 5 users"
@@ -59,7 +60,7 @@ fishing = Skill.new(
   name: "Fishing bootcamp with a bear",
   description: "Learn to fish with a bear, you will never starve anymore!",
   location: "Montreal, Canada",
-  category: "finish",
+  category: "fishing",
   price: "200",
   remote_photo_url: "https://i.pinimg.com/originals/89/20/83/89208300d0f3be73ee565f6429d13ed2.jpg",
   user: User.all.sample
