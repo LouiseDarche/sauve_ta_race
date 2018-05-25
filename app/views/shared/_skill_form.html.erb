@@ -4,7 +4,7 @@
       <%= simple_form_for (@skill) do |f| %>
         <div class="form-group">
           <%= f.input :name %>
-          <%= f.input :category %>
+          <%= f.input :category, collection: Skill::CATEGORIES %>
           <%= f.input :description %>
           <%= f.input :location %>
           <%= f.input :price %>

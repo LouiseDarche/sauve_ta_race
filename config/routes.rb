@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :skills do
     resources :bookings, only: [:new, :create, :edit, :update]
+    resources :reviews, only: :create
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

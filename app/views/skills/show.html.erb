@@ -9,9 +9,7 @@
   </div>
 </div>
 
-
 <div class="container">
-
   <div class="skill">
     <div class="camp">
       <div class="heading">
@@ -50,7 +48,19 @@
       </div>
     </div>
   </div>
+  <h2>
+  <%= pluralize @skill.reviews.size, "review" %>
+</h2>
 
+<div id="reviews">
+  <% if @skill.reviews.blank? %>
+    Be the first to leave a review for <%= @skill.name %>
+  <% else %>
+    <% @skill.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
 </div>
 
 <div id="map" style="width: 100%; height: 600px;"

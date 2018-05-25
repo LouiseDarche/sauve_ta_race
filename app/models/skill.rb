@@ -1,6 +1,7 @@
 class Skill < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :reviews, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
 
@@ -14,5 +15,7 @@ class Skill < ApplicationRecord
     tsearch: {prefix: true }
   }
   # validates :name, presence: true
+
+  CATEGORIES = ["Fishing", "Swimming", "Sleeping", "Eating", "Running", "Surfing", "Walking on water", "Hiding", "Smelling", "Jumping", "sunbathing", "Flying", "begging"]
 
 end
