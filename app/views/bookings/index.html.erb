@@ -6,7 +6,7 @@
       </div>
 
   <% @bookings.each do |booking| %>
-    <div class="information-frame">
+    <div class="booking-information-frame">
       <div class="booking-resume">
         <div class="title-image">
           <div class="inner-title"><%= booking.skill.name %></div>
@@ -15,15 +15,15 @@
         <div class="user-inf">
           <div class="user-confirmation">
             <div id="date">
-              <p > New request from <%= booking.starts_at %> to <%= booking.ends_at %></p>
+              <p > New request from <%= booking.starts_at.strftime("%b %d, %Y") %> to <%= booking.ends_at.strftime("%b %d, %Y") %></p>
             </div>
             <div class="status">
               <% if booking.status == "pending" %>
-                <p id="pending"><%= booking.status %></p>
+                <p class="pending"><%= booking.status %></p>
               <% elsif booking.status == "confirmed"%>
-                <p id="confirmed"><%= booking.status %></p>
+                <p class="accept"><%= booking.status %></p>
               <% else %>
-                <p id="refused"><%= booking.status %></p>
+                <p class="refuse"><%= booking.status %></p>
               <% end %>
             </div>
             <div class="user-picture-name">
