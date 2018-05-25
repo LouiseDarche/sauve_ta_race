@@ -10,10 +10,10 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <!-- add a call to action to book -->
+      <%= link_to "Book an experience", skills_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Create a camp", new_skill_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Book a camp", skills_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-item-important" %>
-
-
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -33,12 +33,12 @@
             </li>
             <li>
               <%= link_to user_bookings_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "My bookings") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "My experiences") %>
               <% end %>
             </li>
             <li>
               <%= link_to users_skills_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "My skills") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "My camps") %>
               <% end %>
             </li>
             <li>
