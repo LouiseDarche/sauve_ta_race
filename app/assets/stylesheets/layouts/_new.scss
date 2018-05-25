@@ -1,15 +1,49 @@
-// .booking-form {
-//   background-color: white;
-//     border: 1px solid rgba(0,0,0,0.2);
-//     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-//     padding: 20px;
-//     margin: auto;
-//     margin-top: 20px;
-//     display: flex;
-//     justify-content: space-between;
-// }
 
-.booking-image img {
-  height: 260px;
-  width: 300px;
+
+.booking-form {
+  background-color: white;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  padding-left: 20px;
 }
+
+.booking-image {
+  flex: 0 0 40%;
+
+  img {
+  max-height: 300px;
+  }
+
+}
+
+.booking-date-picker {
+  padding-right: 20px;
+  // flex: 0 0 60%;
+}
+
+.booking-h2 {
+  margin: 50px 0px;
+
+
+  h2 {
+      font-size: 30px;
+      padding: 20px;
+      margin: 0px;
+      font-family: Work Sans;
+      font-weight: bolder;
+      text-transform: uppercase;
+  }
+}
+
+.container {
+  height: calc(100vh - 140px)
+}
+
+
+
