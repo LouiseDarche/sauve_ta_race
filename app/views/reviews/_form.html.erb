@@ -1,4 +1,4 @@
-<%= simple_form_for([ skill, review ], remote: true) do |f| %>
+<%= simple_form_for([ skill, review ]) do |f| %>
   <%= f.input :content, as: :text, placeholder: 'Share details of your own experience at this bootcamp', label: false %>
   <%= f.submit "post", class: "btn btn-primary btn-lg in_page" %>
 <% end %>
