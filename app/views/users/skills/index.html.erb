@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="title">
-    <h3 id="title" >My skills</h3>
+    <h3 id="title" >My pending requests</h3>
     <h4>
       <% pending_bookings = [] %>
       <% @skills.each do |skill| %>
@@ -11,7 +11,7 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= pluralize pending_bookings.size, "request" %> today
+      <i class="fa fa-bolt"></i> <%= pluralize pending_bookings.size, "request" %> today
     </h4>
   </div>
 
@@ -53,6 +53,42 @@
       <% end %>
     <% end %>
   <% end %>
+
+
+  <div class="information-frame">
+      <h3>All my camps</h3>
+      <div class="row">
+        <div class="booking-list">
+          <% @skills.each do |skill| %>
+            <div class="col-xs-12 col-md-4">
+              <%= link_to skill_path(skill) do %>
+                <div class="card">
+                  <% if skill.photo.nil? %>
+                    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'logo.png' %>');">
+                    </div>
+                  <% else %>
+                    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= skill.photo %>');">
+
+                    </div>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="card-description align-left">
+                      <h2><strong> <%= skill.name %></strong> </h2>
+                      <p><i class="fa fa-map-marker-alt"></i> <%= skill.location %></p>
+                      <p id="price"> Price: <%= skill.price %>€</p>
+                    </div>
+                    <!-- <div class="profile-avatar" style="background-image: url('<%#= booking.user.photo %>');" >
+                    </div> -->
+                  </div>
+                </div>
+                <div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>
 <%= javascript_pack_tag 'uploadbtn' %>
 
