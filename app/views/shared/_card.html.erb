@@ -8,10 +8,12 @@
         <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= skill.photo %>');">
         </div>
       <% end %>
+       <div class="card-category">
+        <p><%= skill.category %></p>
+      </div>
       <div class="card-body">
         <div class="card-description align-left">
           <h2><strong> <%= skill.name %></strong></h2>
-          <p><%= skill.category %></p>
           <p><i class="fa fa-map-marker-alt"></i> <%= skill.location %></p>
           <p id="price"> Price: <%= skill.price %>€</p>
         </div>

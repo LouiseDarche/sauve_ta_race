@@ -1,0 +1,30 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('new_review');
+  newReviewForm.outerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.getElementById('reviews');
+  reviews.insertAdjacentHTML('beforeend', reviewHTML);
+}
+
+function refreshCounter(newCounter) {
+  const counter = document.getElementById('counter');
+  counter.innerHTML = newCounter;
+}
+
+function destroyMessage() {
+  const message = document.getElementById('no-reviews-message');
+  if (message) {
+    message.remove();
+  }
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "reviews/form", skill: @skill, review: @review %>');
+<% else %>
+  addReview('<%= j render "reviews/show", review: @review %>');
+  refreshForm('<%= j render "reviews/form", skill: @skill, review: Review.new %>');
+  refreshCounter('<%= j render "skills/counter", skill: @skill %>');
+  destroyMessage();
+<% end %>
