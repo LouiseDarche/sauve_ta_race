@@ -15,11 +15,10 @@
     </h4>
   </div>
 
-
+<!-- my pending requests -->
   <% @skills.each do |skill| %>
     <% skill.bookings.each do |booking| %>
-      <% if booking.status == "pending" %>
-        <div class="information-frame">
+        <div class="booking-information-frame">
 
             <div class="booking-resume">
               <div class="title-image">
@@ -28,33 +27,55 @@
               </div>
               <%#= render "shared/card", skill: skill%>
               <div class="user-inf">
-                <div class="user-confirmation">
-                  <div id="date">
-                    <p > New request from <%= booking.starts_at %> to <%= booking.ends_at %></p>
+                <% if booking.status == "pending" %>
+                  <div class="user-confirmation">
+                    <div id="date">
+                      <p > New request from <%= booking.starts_at.strftime("%b %d, %Y") %> to <%= booking.ends_at.strftime("%b %d, %Y") %></p>
+                    </div>
+                    <div class="status pending">
+                      <%= booking.status %>
+                    </div>
+                    <div class="buttons">
+                      <div class="button accept"> <%= link_to "Accept", booking_path(booking), method: :patch %></div>
+                      <div class="button refuse"> <%= link_to "Refuse", booking_path(booking), method: :delete %></div>
+                    </div>
                   </div>
-                  <div class="status">
-                    <%= booking.status %>
+                <% elsif booking.status == "confirmed" %>
+                  <div class="user-confirmation">
+                    <div id="date">
+                      <p > Camp starting on <%= booking.starts_at.strftime("%b %d, %Y") %></p>
+                    </div>
+                    <div class="status confirmed">
+                      <%= booking.status %>
+                    </div>
                   </div>
-                  <div class="buttons">
-                    <div class="button accept"> <%= link_to "Accept", booking_path(booking), method: :patch %></div>
-                    <div class="button refuse"> <%= link_to "Refuse", booking_path(booking), method: :delete %></div>
+                <% elsif booking.status == "refused"%>
+                  <div class="user-confirmation">
+                    <div id="date">
+                      <p > You declined <%= booking.user.name.capitalize %>'s candidacy</p>
+                    </div>
+                    <div class="status refused">
+                      <%= booking.status %>
+                    </div>
                   </div>
-                </div>
-                <div class="user-picture-name">
-                  <%= image_tag booking.user.smart_avatar_url, class: "avatar" %>
-                  <p><%= booking.user.name.capitalize %></p>
-
-                </div>
+                 <% else %>
+                  <div class="user-confirmation">
+                    <div id="date">
+                      <p > Camp over</p>
+                    </div>
+                  </div>
+                <% end %>
+              <div class="user-picture-name">
+                <%= image_tag booking.user.smart_avatar_url, class: "avatar" %>
+                <p><%= booking.user.name.capitalize %></p>
               </div>
-
             </div>
-
-        </div>
-      <% end %>
+          </div>
+      </div>
     <% end %>
   <% end %>
 
-
+<!-- all the camps I created -->
   <div class="information-frame">
       <h3>All my camps</h3>
       <div class="row">

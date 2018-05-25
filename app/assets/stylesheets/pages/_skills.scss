@@ -2,6 +2,7 @@
   font-family: 'Work sans';
   font-weight: bold;
   color: #023158;
+  text-transform: uppercase;
 }
 
 .booking-resume {
@@ -46,14 +47,16 @@
 }
 
 .accept {
-    background-color: green;
+    background-color: #70EE9C;
     color: black;
 }
 
 .refuse {
-    background-color: red;
+    background-color: #B4302B;
     border-radius: 20px;
-    color: black;
+    a {
+      color: white !important;
+    }
 }
 
 #date {
@@ -67,9 +70,23 @@
     margin: 16px;
 }
 
+.confirmed {
+  background-color: #70EE9C;
+}
+
+.refused {
+  background-color: #B4302B;;
+}
+
 .user-picture-name {
       display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.booking-information-frame {
+  background-color: rgba(256, 256, 256, 0.8);
+  margin-bottom: 30px;
+  padding: 20px;
 }
 
