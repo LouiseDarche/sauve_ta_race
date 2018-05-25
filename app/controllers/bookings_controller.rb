@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
         format.html { render :new }
         format.js
       end
-      render :new
     end
   end
 

@@ -6,11 +6,7 @@
           <div class="booking-date-picker">
             <p>Select a date</p>
             <div id="inner-form">
-              <%= simple_form_for [@skill, @booking], remote: true do |f| %>
-                <%= f.input :starts_at, as: :string, required: false, input_html: {id:"range_start"} %>
-                <%= f.input :ends_at, as: :string, required: false, input_html: {id:"range_end"} %>
-                <%= f.submit "Confirm booking", id: "sweet-alert-trainee", class: "btn btn-primary btn-lg in_page" %>
-              <% end %>
+              <%= render "bookings/form", skill: @skill, booking: @booking %>
               <!-- <p><i class="fa fa-eur" aria-hidden="true"></i><%#= @skill.price %>€</p> -->
             </div>
           </div>

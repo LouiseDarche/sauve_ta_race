@@ -1,18 +1,11 @@
-function refreshForm(innerHTML) {
+function refreshForm(newForm) {
   const innerForm = document.getElementById("inner-form");
-  innerForm.innerHTML = innerHTML;
+  innerForm.innerHTML = newForm;
 }
 
 <% if @booking.errors.any? %>
-  // select the form
-  refreshForm()
-  // re-render the new form
-  refreshForm('<%= j render "bookings/new" %>');
-  // delete from the dom
-  innerForm.innerHTML = "";
-  // append the new form to the dom
-
+  refreshForm('<%= j render "bookings/form", skill: @skill, booking: @booking %>');
 <% else %>
-  bindSweetAlertButtonDemo('<%= @booking.skill.name %>', <%= current_user.id %>);
+  bindSweetAlertButtonDemo('<%= @booking.skill.name %>', '<%= current_user.id %>');
 <% end %>
 
